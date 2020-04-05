@@ -1,0 +1,82 @@
+
+<br>
+
+<br>
+
+<br>
+A= <input type="text" name="strana_a" ng-model="strana_a"> cm
+<br>
+<br>
+
+B= <input type="text" name="strana_b" ng-model="strana_b"> cm
+<br>
+<br>
+<div>P= {{(strana_a*strana_b)}}cm</div>
+<div>L= {{(strana_a*2)+(strana_b*2)}}cm</div>
+
+
+<br>
+
+A= <input type="text" name="strana_a" ng-model="strana_a"> m
+<br>
+<br>
+
+B= <input type="text" name="strana_b" ng-model="strana_b"> m
+
+<br>
+<br>
+
+Cena za kvadrat= <input type="text" name="cena" ng-model="cena"> Eur
+
+<div>Vkupna Cena= {{(strana_a*strana_b*cena)}}Eur</div>
+<br>
+<div class="alert alert-success" ng-show="success">Uspeh</div>
+
+Ime: <input type="text" ng-model="first_name">
+prezime: <input type="text"  ng-model="prezime">
+<button ng-click="zacuvaj(first_name,prezime)" >Save</button>
+
+Age: <input type="text"  ng-model="age">
+<button ng-click="zivot_denovi(age)" >Presmetaj</button>
+<input type="text" ng-model="result">
+<hr>
+<div class="alert alert-success" ng-show="Bez_obuka">Upesno se vrabotivte!</div>
+<div class="alert alert-info" ng-show="so_obuka">Obuka 3 meseci!</div>
+<div class="alert alert-danger" ng-show="nevraboten">Nareden pat!</div>
+<h3>Oglas za vrabotuvanje</h3>
+Vozrast <input type="text" ng-model="godini">
+ Jazik <input type="text" ng-model="jazik">
+ Staz <input type="text" ng-model="staz">
+ <button ng-click="vrabotuvanje(godini,jazik,staz)">Oglasi</button>
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Start</th>
+        <th>Momentalna</th>
+        <th>cel</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+          <td><select name="startna" ng-model="startna" id="">
+              <option ng-repeat="cities in gradovi" value="{{cities.pat}}">{{cities.city}}</option>
+          </select></td>
+          <td><select name="momentalna" ng-model="momentalna" id="">
+            <option ng-repeat="cities in gradovi" value="{{cities.pat}}">{{cities.city}}</option>
+        </select></td>
+          <td><select name="krajna" ng-model="krajna" id="">
+            <option ng-repeat="cities in gradovi" value="{{cities.pat}}">{{cities.city}}</option>
+        </select></td>
+      </tr>
+      <tr>
+            <td> izminati Km= {{(momentalna-pocetna)}}</td>
+        <td> preostanati Km= {{(krajna-momentalna)}}</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  

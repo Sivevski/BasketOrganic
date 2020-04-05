@@ -1,0 +1,239 @@
+
+
+
+
+
+<!-- SHOWCASE SLIDER -->
+<header id="diet_banner">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <form name="myForm">
+      <div class="container bg-custom2 mt-5 mb-5">
+          <div class="row">
+          <div class=" col mt-3">
+          <h3>Ве молиме пополнете го формуларот</h3>
+        </div>
+    </div>
+          <div class="row mt-5">
+              <div class="col">
+                <label for="Name" >Име: </label>
+                    <input type="text"  ng-minlength="3"  class="form-control"  name="Name"  id="Name" ng-model="Name">
+                    <label class="alert alert-danger text-center" ng-show="myForm.Name.$dirty && myForm.Name.$invalid">Внесете име со мин 3 карактери</label>
+                
+            </div>
+              <div class="col">
+                    <label for="Surname">Презиме: </label>
+                    <input type="text"  name="Surname" ng-minlength="3"class="form-control" id="Surname"  ng-model="Surname">
+                    <label class="alert alert-danger text-center" ng-show="myForm.Surname.$dirty && myForm.Surname.$invalid">Внесете презиме со мин 3 карактери</label>
+              </div>
+               <div class="col">
+                     <label for="Age">Возраст: </label>
+                     <input type="number"  name="Age" ng-minlength="1" class="form-control" id="Age" ng-model="Age">
+                     <label class="alert alert-danger text-center" ng-show="myForm.Age.$dirty && myForm.Age.$invalid">Внесете возраст!</label>
+                </div>
+        </div>
+        <div class="row mt-3">
+                <div class="col">
+                    <label for="Email">Емаил: </label>
+                    <input type="Email" name="mail"  ng-minlength="3" class="form-control" id="mail" ng-model="mail">
+                    <label class="alert alert-danger text-center" ng-show="myForm.mail.$dirty && myForm.mail.$invalid">Внесете точен Емаил!</label>
+                </div>
+                <div class="col ml-5 text-center">
+                    <div>
+                        <label for = "Gender">Пол</label>
+                   </div>
+                         <label class = "checkbox-inline customcheck"> 
+                             <span class><i class="fas fa-male fa-10x"></i></span>
+                             <div>
+                                <input type = "radio" id = "inlineCheckbox1" value = "option1" name="pol" ng-model="pol"> 
+                            </div>
+                         </label>
+                        <label class = "checkbox-inline ml-5">
+                             <span><i class="fas fa-female fa-10x"></i></span>
+                             <div>
+                                <input type = "radio" id = "inlineCheckbox2" value = "option2" name="pol" ng-model="pol">
+                            </div>
+                         </label>
+                 </div>
+        </div>
+        <div class="row mt-3">
+               <div class="col">
+                        <label  for="city">Град</label>
+                        <select class="custom-select"  name="city" ng-model="city" >
+                          <option ng-repeat="Data in gradovi">{{Data.grad}}</option>      
+                        </select>    
+                 </div>
+          </div>
+           <div class="row mt-5">
+                 <div class="col">
+                        <label for="height">Висина: </label>
+                        <input type="number"  name="height" ng-minlength="2"   class="form-control"   name ="height" ng-model="height">
+                        <label class="alert alert-danger text-center" ng-show="myForm.height.$dirty && myForm.height.$invalid">Внесете висина!</label>
+                </div>
+                <div class="col">
+                        <label for="weight">Тежина: </label>
+                        <input type="number" name="weight"  ng-minlength="2"  class="form-control" name="weight" ng-model="weight">
+                        <label class="alert alert-danger text-center" ng-show="myForm.weight.$dirty && myForm.weight.$invalid">Внесете тежина!</label>
+                </div>
+                 <div class="col">
+                        <label for="goal">Посакувана цел: </label>
+                        <select class="custom-select" ng-model="goal" name="goal" >
+                            <option ng-repeat="Data in goals">{{Data.goal}}</option>      
+                        </select>   
+                </div>
+                <div class="col">
+                        <label for="goal_weight">Посакувана тежина: </label>
+                        <input type="number"  ng-minlength="2" class="form-control"  name="goal_weight" ng-model="goal_weight">
+                        <label class="alert alert-danger text-center" ng-show="myForm.goal_weight.$dirty && myForm.goal_weight.$invalid">Внесете посакувана тежина!</label>
+                </div>
+              </div>
+              <div class="row mt-3">
+                    <div class="col">
+                        <div><h6>Доколку сте биле некогаш на диета ве молиме накратко опишете:</h6></div>
+                        <textarea   ng-minlength="2" class="form-control" rows="3" name="diet" ng-model="diet"></textarea>
+                        <label class="alert alert-danger text-center" ng-show="myForm.diet.$dirty && myForm.diet.$invalid">Внесете опис!</label>
+                      </div>
+               </div>
+               <div class="row mt-5">
+                    <div class="col">
+                           <label for="frequency">Колку пати во денот јадете?: </label>
+                           <input type="number"   ng-minlength="2" class="form-control" name="frequency" ng-model="frequency">
+                            <label class="alert alert-danger text-center" ng-show="myForm.frequency.$dirty && myForm.frequency.$invalid">Внесете број на оброци!</label>
+                   </div>
+                   <div class="col">
+                           <label for="descritpion">Накратко опишете какова храна јадете: </label>
+                           <input type="text"    ng-minlength="2"  class="form-control" name="descritpion" ng-model="descritpion">
+                           <label class="alert alert-danger text-center" ng-show="myForm.descritpion.$dirty && myForm.descritpion.$invalid">Внесете опис!</label>
+                   </div>
+               </div>
+               <div class="row mt-5">
+                    <div class="col">
+                           <label for="problems">Дали имате некои стомачни тегоби/прoблеми:? </label>
+                           <input type="text"ng-minlength="2"  class="form-control"  name="problems" ng-model="problems" >
+                           <label class="alert alert-danger text-center" ng-show="myForm.problems.$dirty && myForm.problems.$invalid">Ве молиме одговорете!</label>
+                   </div>
+                   <div class="col">
+                           <label for="alergies">Дали сте алергични на некоја храна?</label>
+                           <input type="text"  ng-minlength="2"  class="form-control" name="alergies" ng-model="alergies">
+                           <label class="alert alert-danger text-center" ng-show="myForm.alergies.$dirty && myForm.alergies.$invalid">Ве молиме одговорете!</label>
+                   </div>
+               </div>
+               <div class="row mt-5">
+                    <div class="col">
+                           <label for="workout_frequency">Колку пати неделно спортувате?: </label>
+                           <input type="number" ng-minlength="1" class="form-control" name="workout_frequency" ng-model="workout_frequency">
+                           <label class="alert alert-danger text-center" ng-show="myForm.workout_frequency.$dirty && myForm.workout_frequency.$invalid">Ве молиме одговорете!</label>
+                   </div>
+                   <div class="col">
+                           <label for="supplements">Дали  би сакале да користите додатоци/суплементи?</label>
+                           <input type="text" ng-minlength="2" class="form-control"  name="supplements" ng-model="supplements" >
+                           <label class="alert alert-danger text-center" ng-show="myForm.supplements.$dirty && myForm.supplements.$invalid">Ве молиме одговорете!</label>
+                   </div>
+                   
+               </div>
+               <div class="row mt-3">
+                    <div class="col">
+                        <div><h6>Опишете како ви тече еден ден:</h6></div>
+                        <textarea   ng-minlength="2"  class="form-control" rows="3" name="day" ng-model="day"></textarea>
+                        <label class="alert alert-danger text-center" ng-show="myForm.day.$dirty && myForm.day.$invalid">Внесете опис!</label>
+                      </div>
+               </div>
+               <div class="row mt-5">
+                    <div class="col-3">Кој вид на месо го преферирате?: </label>
+                        <select class="custom-select" ng-model="meso" name="meso" >
+                                <option ng-repeat="Data in vid_meso">{{Data.meso}}</option>      
+                              </select>  
+                   </div>
+                   <div class="col">
+                           <label for="weight">На ниво од 1 до 10,напишете ја вашата мотивација за постигнување на избраната цел:  </label>
+                           <input type="number" class="form-control" ng-model="motivacija" name="motivacija">
+                   </div>
+               </div>
+               <div class="row mt-3">
+                    <div class="col">
+                        <div><h6>Како дознавте за Organic Basket?</h6></div>
+                             <input type="tеxt" class="form-control" ng-model="find_out" name="find_out">
+                      </div>
+               </div>
+               <div class="row mt-3">
+                    <div class="col">
+                        <div><h6>Дополнете што сметате дека е друго важно:</h6></div>
+                        <textarea class="form-control" rows="3" ng-model="vazno" name="vazno"></textarea>
+                      </div>
+               </div>
+               <div class="text-center">
+               <button type="submit" class="btn btn-dark mt-3 mb-3" ng-click="nutricionist_fun(Name,Surname,Age,mail,pol,city,height,weight,goal,goal_weight,diet,frequency,descritpion,problems,alergies,workout_frequency,supplements,day,meso,motivacija,find_out,vazno)">Испрати</button>
+            </div>
+        </div>
+              
+            
+        
+        
+        
+                 
+  </form>
+  
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!----<table class="table table-bordered table-danger table-responsive-lg table-hover table-condensed">
+        <thead class="thead-dark text-center">
+            <tr>
+                <th>Photo</th>
+                <th><input type="text" ng-model="search_kg" placeholder="Пребарај по kg"></th>
+                <th><input type="text" ng-model="search_category" placeholder="Пребарај по категорија"></th>
+                <th><input type="radio" ng-model="search_pol" value="maski">M<input type="radio" ng-model="search_pol" value="zenski">Z<input type="radio" ng-model="search_pol" value="">Site
+                </th>
+                <th>Измени</th>
+                <th>Избриши</th>
+            </tr>
+        </thead>
+        <tbody class="text-center ">
+            <tr ng-repeat="dieta in dieta_online |filter:{kg_od:search_kg,pol:search_pol}">
+                <td><img src="uploads/products/{{dieta.Cover_Photo}}" alt="Domat" width="70" height="70"></td>
+                <td class="align-middle">{{dieta.kg_od}}</td>
+                <td class="align-middle">{{dieta.kg_do}}</td>
+                <td class="align-middle">{{dieta.pol}}</td>
+                <td class="align-middle">{{dieta.dieta_description}}</td>
+            </tr>
+        </tbody>
+    </table>---->

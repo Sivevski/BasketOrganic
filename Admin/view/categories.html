@@ -1,0 +1,62 @@
+<div class="container mt-5">
+    <table class="table table-condensed table-success table-bordered table-hover">
+         <thead class="thead-dark text-center">
+             <tr>
+                <th>Категории</th>
+                <th>Избриши</th>
+            </tr>
+        </thead>
+        <tbody class="text-center" >
+            <tr ng-repeat="Data in categories">
+                <td>{{Data.Category}}</td>
+                <td><a href=""><span class="fas fa-trash"</span></a></td>
+            </tr>
+        </tbody>
+    </table>
+    <section class="py-4 mb-4">
+            <div class="container">
+                    <div class="row">
+                            <div class="col-md-12">
+                                    <a href="" class="btn btn-success btn-block" data-toggle="modal" data-target="#addCategoryModal">
+                                            <i class="fas fa-plus"></i> Внеси новa категорија
+                                    </a>
+                            </div>
+                    </div>
+            </div>
+    </section>
+</div>
+ <!--MODALS-->
+<div class="modal fade" id="addCategoryModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-success text-white text-center">
+                        <h5 class="modal-title">Додај новa категорија</h5>
+                        <button class="close" data-dismiss="modal">
+                                <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                         <div class="alert alert-success text-center" ng-show="success"><h4>Успешно внесовте новa категорија!</h4></div>
+                            <form name="myForm">
+                                    <div class="container mt-5">
+                                        <div class="form-group row">
+                                                <label  class="control-label col-sm-2 col-form-label text-center" for="Name">Категорија:</label> 
+                                        <div class="col-sm-10">
+                                                <input type="text" name="Category" ng-model="Category" ng-minlength="3" placeholder="Внеси категорија" class="text-center col-sm-8 col-md-6 col-lg-6 ml-3">
+                            <!--Labelo za validacija Ime-->  <label class="alert alert-danger text-center col-sm-8 col-md-6 col-lg-6" ng-show="myForm.Category.$dirty && myForm.Category.$invalid">Insert name with min 3 characters</label>
+                                        </div>
+                                        </div>
+                                        <div class="form-group row">
+                                                <label  class="control-label col-sm-2 col-form-label text-center" ></label> 
+                                                <div class="col-sm-10">
+                                                    <button type="submit" class="btn btn-outline-success save-form text-center col-sm-8 col-md-6 col-lg-6 ml-3" ng-click="insert_category(Category)">Зачувај</button>
+                                                    
+                                                    </div>
+                                        </div>
+                                    </div>
+                         </form>
+                    </div>
+                </div>
+            </div>
+         </div>
+

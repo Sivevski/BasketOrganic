@@ -1,0 +1,114 @@
+<div class="container mt-5">
+    <table class="table table-bordered table-hover table-condensed table-responsive-lg">
+        <thead class="thead-dark text-center">
+            <tr>
+                <th>Име</th>
+                <th><input type="text" ng-model="search_user" placeholder="Пребарај по презиме"></th>
+                <th>Телефон</th>
+                <th>Емаил</th>
+                <th>Пасворд</th>
+                <th>Измени</th>
+                <th>Избриши</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr  ng-repeat="Data in users |filter:{Surname:search_user}">
+                <td>{{Data.Name}}</td>
+                <td>{{Data.Surname}}</td>
+                <td>{{Data.Phone}}</td>
+                <td>{{Data.Email}}</td>
+                <td>{{Data.Password}}</td>
+                <td><a href=""><span class="fas fa-pencil-alt"</span></a></td>
+                <td><a href=""><span class="fas fa-trash"</span></a></td>
+              
+
+
+            </tr>
+        </tbody>
+    </table>
+        <section class="py-4 mb-4 bg-light">
+            <div class="container">
+                    <div class="row">
+                            <div class="col-md-12">
+                                    <a href="" class="btn btn-dark btn-block" data-toggle="modal" data-target="#addUserModal">
+                                            <i class="fas fa-plus"></i> Внеси нов корисник
+                                    </a>
+                            </div>
+                    </div>
+            </div>
+    </section>
+    <!--MODALS-->
+    <div class="modal fade" id="addUserModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white text-center">
+                    <h5 class="modal-title">Додај нов корисник</h5>
+                    <button class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                        <div class="alert alert-success text-center" ng-show="success"><h4>Успешно внесовте нов корисник!</h4></div>
+                        <form name="myForm">
+                            <div class="container mt-5">
+                                <div class="form-group row">
+                                        <label  class="control-label col-sm-2 col-form-label text-center" for="Name">Име:</label> 
+                                <div class="col-sm-10">
+                    
+                                        <input type="text" name="Name" ng-model="Name" ng-minlength="3" placeholder="Внеси Име" class="text-center col-sm-8 col-md-6 col-lg-6">
+                    <!--Labelo za validacija Ime-->  <label class="alert alert-danger text-center col-sm-8 col-md-6 col-lg-6" ng-show="myForm.Name.$dirty && myForm.Name.$invalid">Внесете име со мин 3 карактери</label>
+                                </div>
+                                </div>
+                                <div class="form-group row">
+                                        <label  class="control-label col-sm-2 col-form-label text-center" for="Surname">Презиме:</label> 
+                                <div class="col-sm-10">
+                    
+                                        <input type="text" name="Surname" ng-model="Surname" ng-minlength="3" placeholder="Внеси Презиме" class="text-center col-sm-8 col-md-6 col-lg-6">
+                    <!--Labelo za validacija prezime-->  <label class="alert alert-danger text-center col-sm-8 col-md-6 col-lg-6" ng-show="myForm.Surname.$dirty && myForm.Surname.$invalid">Внесете презиме со мин 3 карактери</label>
+                                </div>
+                                </div>
+                                <div class="form-group row">
+                                        <label  class="control-label col-sm-2 col-form-label text-center" for="Email">Емаил:</label> 
+                                <div class="col-sm-10">
+                    
+                                        <input type="Email" name="Email" ng-model="Email" ng-minlength="3" placeholder="Внеси Емаил" class="text-center col-sm-8 col-md-6 col-lg-6">
+                    <!--Labelo za validacija Email-->  <label class="alert alert-danger text-center col-sm-8 col-md-6 col-lg-6" ng-show="myForm.Email.$dirty && myForm.Email.$invalid">Внесете емаил со мин 3 карактери</label>
+                                </div>
+                                </div>
+                                <div class="form-group row">
+                                        <label  class="control-label col-sm-2 col-form-label text-center" for="Password">Пасворд:</label> 
+                                <div class="col-sm-10">
+                    
+                                        <input type="password" name="Password" ng-model="Password" ng-minlength="3" placeholder="Внеси Пасворд" class="text-center col-sm-8 col-md-6 col-lg-6">
+                    <!--Labelo za validacija  pasword-->  <label class="alert alert-danger text-center col-sm-8 col-md-6 col-lg-6" ng-show="myForm.Password.$dirty && myForm.Password.$invalid">Внесете пасворд со мин 3 карактери</label>
+                                </div>
+                                </div>
+                                <div class="form-group row">
+                                        <label  class="control-label col-sm-2 col-form-label text-center" for="Phone">Телефон:</label> 
+                                <div class="col-sm-10">
+                    
+                                        <input type="number" name="Phone" ng-model="Phone" ng-minlength="9" placeholder="Внеси Телефон" class="text-center col-sm-8 col-md-6 col-lg-6">
+                    <!--Labelo za validacija  pasword-->  <label class="alert alert-danger text-center col-sm-8 col-md-6 col-lg-6" ng-show="myForm.Phone.$dirty && myForm.Phone.$invalid">Внесете телефон со мин 9 бројки</label>
+                                </div>
+                                </div>
+                                <div class="form-group row">
+                                        <label  class="control-label col-sm-2 col-form-label text-center" for="Phone"></label> 
+                                        <div class="col-sm-10">
+                                            <button type="submit" class="btn btn-outline-dark save-form text-center col-sm-8 col-md-6 col-lg-6" ng-click="insert_users(Name,Surname,Email,Password,Phone)">Зачувај</button>
+                                            
+                                            </div>
+                                         </div>
+                        
+                    </div>
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    
+   

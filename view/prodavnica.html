@@ -1,0 +1,213 @@
+ <!-- SHOWCASE SLIDER -->
+ <section id="banner">
+   <div class="container-fluid" id="vegetables_banner">
+
+   </div>
+       
+      </section>
+
+      <!---PROIZVODI-->
+      <section id="products">
+        <div class="container mt-5">
+          <div class="col-md-4 float">
+            <div id="accordion" class="myaccordion mt-5">
+                    
+                <div class="card bg-custom2">
+                        <div class="col-lg-12 col-md-12 col-sm-12 py-2 px-3 btn-custom new_title   text-white text-center" >
+                                <h5>Kатегории</h5>
+                              </div>
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                        <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        Зеленчук
+                        <i class="fas fa-plus"></i>
+                        </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <!--
+                            <select  ng-model="searcByCategory">
+                                    <option ng-repeat="subcategories in subcategory" value="{{subcategories.subcategory_id}}">
+                                            {{subcategories.subcategory_name}}
+                                    </option>
+
+                            </select>
+                        -->
+                            
+                            <ul ng-model="searcBySubcategory">
+                                <li ng-repeat="subcategories in subcategory | filter: {category_id:1}">
+                                   <a ng-click="getSubCategori(subcategories.subcategory_id)" href="" >{{subcategories.subcategory_name}}</a> 
+
+                                </li>
+                                <li>
+                                   <a ng-click="getCategory(1)"  href="">Сите</a>
+                                </li>
+                                <!--
+                                 <li value="1">Домати</li>
+                                 <li value="1">Пиперки</li>
+                                 <li>Компири</li>
+                                 <li>Грав</li>
+                                 <li>Зелка</li>
+                                 -->
+                            </ul>
+        
+                        </div>
+                    </div>
+                </div>
+                <div class="card bg-custom2">
+                        <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                            <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Овошје
+                            <i class="fas fa-plus"></i>
+                            </button>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                                <ul>
+                                        <li ng-repeat="subcategories in subcategory | filter: {category_id:2}">
+                                                <a ng-click="getSubCategori(subcategories.subcategory_id)" href="" >{{subcategories.subcategory_name}}</a> 
+             
+                                             </li>
+                                    <!----
+                                     <li>Јаболка</li>
+                                     <li>Круши</li>
+                                     <li>Грозје</li>
+                                     <li>Дињи</li>
+                                     <li>Лубеници</li>-->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>                       
+                </div>
+                 <div class="card bg-custom2">
+                                <div class="col-lg-12 col-md-12 col-sm-12 py-2 px-3 btn-custom3 new_title2   text-white text-center" >
+                                        <h5>Моја кошничка</h5>
+                                </div>
+                            <div class="card-header text-center">
+                                <h2 class="text-green">
+                                    <i class="fas fa-shopping-cart px-2 "></i><h6 class="text-green">Вашата кошничка е празна</h6>
+                                </h2>
+                            </div>
+                </div>
+         </div>
+                        
+          </div>
+                <div class="row mt-5">
+            <div class="col mt-5 text-center">
+                <div class="container mb-3"> Ви нудиме сезонско овошје и зеленчук по промотивни цени со достава до вашиот дом .</div>
+                <div class="row">
+                    <div class="col-lg-3 col-sm-4 col-6 mx-auto mb-3" ng-repeat="product in products | filter: {category_id:selectCategoryID, subcategory_id:selectSubcategory}">
+                    <div class=" card shadow text-center border-secondary-outline">
+                            <div class="inner">
+                                <button class="btn-img">
+                          <img src="./uploads/products/{{product.Cover_Photo}}" class="img-fluid hover-effect" alt="" >
+                                </button>
+                            </div>
+                          <h6 class="text-center">{{product.Product}}</h6>
+                            <div class="container">
+                            <select class="form-control ">
+                              <option ng-repeat="product_pr in product_price | filter: {product_id: product.product_id}" class="display-5" >{{product_pr.price}}</option>
+                            </select>
+                           <h6 class="d-inline mx-auto">Количина</h6>
+                            <input type="number" min="0" max="1" name="" id="quantity" class="mt-3 mb-3 mx-auto" >
+                            <button class="btn btn-success d-inline mb-3">
+                              <i class="fas fa-shopping-cart px-2 "></i>Додај
+                            </button>
+                               <a href=""><button class="btn btn-primary btn-block" data-toggle="modal" data-target="#category" ng-click="getIDModal(product.product_id)">Повеќе</button></a> 
+                          </div>
+                        </div>
+                        </div>
+                    </div>
+                        
+        </div>
+            
+        </div>
+        </div>
+      </section>
+
+      <!--MODALS-->
+
+    <div class="modal fade" id="category">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" >
+                <div class="modal-header bg-danger text-white text-center" ng-repeat="product in products | filter:{product_id:product_id_in_modal}" ng-style="'background-color':'{{product.color}}'">
+                    <h5 class="modal-title" >{{product.Product}}</h5>
+                    <button class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" ng-repeat="product in products | filter:{product_id:product_id_in_modal}">
+                    
+                    <img src="./uploads/products/{{product.Cover_Photo}}" class="img-fluid hover-effect" alt="" >
+                    <p>{{product.long_text}}</p>
+<div class="alert alert-success text-center" ng-show="success"><h4>Успешно внесовте нов производ!</h4></div>
+<form name="myForm">
+        <div class="container mt-5">
+            <div class="form-group row">
+                    <label  class="control-label col-sm-2 col-form-label text-center" for="Product">Производ:</label> 
+            <div class="col-sm-10 ">
+
+                    <input type="text" name="Product" ng-model="Product" ng-minlength="3" placeholder="Внеси Производ" class="text-center col-sm-8 col-md-6 col-lg-6 ml-3">
+<!--Labelo za validacija Ime-->  <label class="alert alert-danger text-center col-sm-8 col-md-6 col-lg-6" ng-show="myForm.Product.$dirty && myForm.Product.$invalid">Insert name with min 3 characters</label>
+            </div>
+            </div>
+            <div class="form-group row">
+                    <label for="Image" class="control-label col-sm-2 col-form-label text-center">Додај слика:</label>
+                    <div class="col-sm-10 ">
+                        <input type="file" class="form-control-file text-center col-sm-8 col-md-6 col-lg-6" id="image">    
+                    </div>
+                   </div>
+            <div class="form-group row">
+                    <label  class="control-label col-sm-2 col-form-label text-center" for="Category">Категорија:</label> 
+            <div class="col-sm-10 ">
+
+                    <select name="Category" ng-model="Category"  class="text-center col-sm-8 col-md-6 col-lg-6 ml-3">
+                        <option ng-repeat="Data in categories" value="{{Data.Category}}">{{Data.Category}}</option>
+                    </select>
+<!--Labelo za validacija prezime-->  <label class="alert alert-danger text-center col-sm-8 col-md-6 col-lg-6" ng-show="myForm.Surname.$dirty && myForm.Surname.$invalid">Insert name with min 3 characters</label>
+            </div>
+            </div>
+            <div class="form-group row">
+                    <label  class="control-label col-sm-2 col-form-label text-center" for="Price">Цена:</label> 
+            <div class="col-sm-10">
+
+                    <input type="number" name="Price" ng-model="Price" ng-minlength="2" placeholder="Внеси цена" class="text-center col-sm-8 col-md-6 col-lg-6 ml-3">
+<!--Labelo za validacija Email-->  <label class="alert alert-danger text-center col-sm-8 col-md-6 col-lg-6" ng-show="myForm.Price.$dirty && myForm.Price.$invalid">Внесете цена со мин 2 бројки</label>
+            </div>
+            </div>
+            
+            
+            <div class="form-group row">
+                    <label  class="control-label col-sm-2 col-form-label text-center" ></label> 
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-outline-danger save-form text-center col-sm-8 col-md-6 col-lg-6 ml-3" ng-click="insert_products(Product,Category,Price)">Зачувај</button>
+                        
+                        </div>
+                     </div>
+    
+</div>
+
+
+
+  
+                        
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+      <script>
+          $("#accordion").on("hide.bs.collapse show.bs.collapse", e => {
+  $(e.target)
+    .prev()
+    .find("i:last-child")
+    .toggleClass("fa-minus fa-plus");
+});
+      </script>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    
+        <!--  Style CSS -->
+        <!--
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+         <link href="assets/fonts/Font_Awesome/all.css" rel="stylesheet"> <!--load all styles -->
+      <!---- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>--> 
+        
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">  
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/owl.carousel.css">
+        <link rel="stylesheet" href="assets/css/owl.theme.default.css">
+
+        <link href="assets/fonts/Font_Awesome/all.css" rel="stylesheet">
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js//bootstrap.min.js"></script>
+        <script src="assets/js//owl.carousel.js"></script>
+        
+        
+        <script src="https://kit.fontawesome.com/c5bf6100fe.js"></script>
+       <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+    
+        <!--
+	   <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	   <link rel="stylesheet" href="css/normalize.css">
+	
+        -->
+            <!--[if IE]>
+            <link rel="stylesheet" type="text" href="assets/css/ie.css">
+            <![endif]-->
+        <!--  AngularJS -->
+        <script src="assets/js/angular.min.js"></script>
+        <script src="assets/js/angular-route.min.js"></script>
+        <script src="assets/js/app.js"></script>
+        <script src="assets/js/routes.js"></script>
+    </head>
+    <body ng-app="myApp" ng-controller="myCtrl">
+        <header>
+                <nav class="navbar navbar-expand-xl  fixed-top  bg-dark navbar-dark py-2" id="main-nav">
+                        <div class="container text-center" >
+                            <a href="#home" class="navbar-brand">
+                            <img src="./assets/img/logo1.png" width="160" height="60" alt="">
+                            </a>
+                                
+                            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarCollapse">
+                                <ul class="navbar-nav ml-auto mr-auto display-custom">    
+                                   
+                                       <li class="nav-item active ">  <a href="#home" class="nav-link  text-white">Дома</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#prodavnica" class="nav-link text-white ">Продавница</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#dieta_online" class="nav-link text-white ">Онлајн Нутриционист</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#advice" class="nav-link text-white ">Совети</a>
+                                    </li>
+                                    <li class="nav-item">
+                                         <a href="#recepti"class="nav-link text-white ">Рецепти</a>
+                                    </li>
+                                </ul>
+                                <form class=" p-0">
+                                    <div class="input-group">
+                                    <input type="text" class="form-control -0" placeholder="Барај">
+                                    <div class="input-group-btn">
+                                    <button class="btn btn-outline-success text-center" type="submit">
+                                    <i class="fas fa-search "></i>
+                                </button>
+                            </div>
+                        </div>
+                                </form>
+                            </div>
+                         </div>
+                    </nav>
+        </header>
+      
+        
+        
+        <div class="container-fluid body-content">
+            <div class="row">
+                <div class="col-lg-12 px-0">
+                    
+                    <div ng-view></div>
+                </div>
+            </div>
+    </div>
+    
+
+    <!--<footer id="main-footer  conrainer fluid" class="text-center">
+    
+            <div class="row">
+              <div class="col bg-dark mt-3 text-white ">
+                <p>Copyright &copy;
+                  <span id="year"></span> BasketOrganic</p>
+              </div>
+            </div>
+          
+        </footer>-->
+      
+    </body>
+
+    
+</html>

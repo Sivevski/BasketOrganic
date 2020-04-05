@@ -1,0 +1,111 @@
+<div class="container mt-5 jajce">
+    <table class="table table-bordered table-danger table-responsive-lg table-hover table-condensed">
+        <thead class="thead-dark text-center">
+            <tr>
+                <th>Photo</th>
+                <th><input type="text" ng-model="search_product" placeholder="Пребарај по прoизвод"></th>
+                <th><input type="text" ng-model="search_category" placeholder="Пребарај по категорија"></th>
+                <th>Цена</th>
+                <th>Измени</th>
+                <th>Избриши</th>
+            </tr>
+        </thead>
+        <tbody class="text-center ">
+            <tr ng-repeat="Data in products |filter:{Name:search_product,Category:search_category}">
+                <td><img src="../uploads/products/{{Data.Photo}}" alt="Domat" width="70" height="70"></td>
+                <td class="align-middle">{{Data.Name}}</td>
+                <td class="align-middle">{{Data.Category}}</td>
+                <td class="align-middle">{{Data.Price}}</td>
+                <td class="align-middle"><a href=""><span class="fas fa-pencil-alt"</span></a></td>
+                <td class="align-middle"><a href=""><span class="fas fa-trash"</span></a></td>
+            </tr>
+        </tbody>
+    </table>
+    <section class="py-4 mb-4">
+            <div class="container">
+                    <div class="row">
+                            <div class="col-md-12">
+                                    <a href="" class="btn btn-danger btn-block" data-toggle="modal" data-target="#addProductModal">
+                                            <i class="fas fa-plus"></i> Внеси нов прoизвод
+                                    </a>
+                            </div>
+                    </div>
+            </div>
+    </section>
+    </div>
+
+    
+
+     <!--MODALS-->
+
+    <div class="modal fade" id="addProductModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-danger text-white text-center">
+                        <h5 class="modal-title">Додај нов прoизвод</h5>
+                        <button class="close" data-dismiss="modal">
+                                <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                           
+                        
+    <div class="alert alert-success text-center" ng-show="success"><h4>Успешно внесовте нов производ!</h4></div>
+    <form name="myForm">
+            <div class="container mt-5">
+                <div class="form-group row">
+                        <label  class="control-label col-sm-2 col-form-label text-center" for="Product">Производ:</label> 
+                <div class="col-sm-10 ">
+    
+                        <input type="text" name="Product" ng-model="Product" ng-minlength="3" placeholder="Внеси Производ" class="text-center col-sm-8 col-md-6 col-lg-6 ml-3">
+    <!--Labelo za validacija Ime-->  <label class="alert alert-danger text-center col-sm-8 col-md-6 col-lg-6" ng-show="myForm.Product.$dirty && myForm.Product.$invalid">Insert name with min 3 characters</label>
+                </div>
+                </div>
+                <div class="form-group row">
+                        <label for="Image" class="control-label col-sm-2 col-form-label text-center">Додај слика:</label>
+                        <div class="col-sm-10 ">
+                            <input type="file" class="form-control-file text-center col-sm-8 col-md-6 col-lg-6" id="image">    
+                        </div>
+                       </div>
+                <div class="form-group row">
+                        <label  class="control-label col-sm-2 col-form-label text-center" for="Category">Категорија:</label> 
+                <div class="col-sm-10 ">
+    
+                        <select name="Category" ng-model="Category"  class="text-center col-sm-8 col-md-6 col-lg-6 ml-3">
+                            <option ng-repeat="Data in categories" value="{{Data.Category}}">{{Data.Category}}</option>
+                        </select>
+    <!--Labelo za validacija prezime-->  <label class="alert alert-danger text-center col-sm-8 col-md-6 col-lg-6" ng-show="myForm.Surname.$dirty && myForm.Surname.$invalid">Insert name with min 3 characters</label>
+                </div>
+                </div>
+                <div class="form-group row">
+                        <label  class="control-label col-sm-2 col-form-label text-center" for="Price">Цена:</label> 
+                <div class="col-sm-10">
+    
+                        <input type="number" name="Price" ng-model="Price" ng-minlength="2" placeholder="Внеси цена" class="text-center col-sm-8 col-md-6 col-lg-6 ml-3">
+    <!--Labelo za validacija Email-->  <label class="alert alert-danger text-center col-sm-8 col-md-6 col-lg-6" ng-show="myForm.Price.$dirty && myForm.Price.$invalid">Внесете цена со мин 2 бројки</label>
+                </div>
+                </div>
+                
+                
+                <div class="form-group row">
+                        <label  class="control-label col-sm-2 col-form-label text-center" ></label> 
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-outline-danger save-form text-center col-sm-8 col-md-6 col-lg-6 ml-3" ng-click="insert_products(Product,Category,Price)">Зачувај</button>
+                            
+                            </div>
+                         </div>
+        
+    </div>
+    
+    
+    
+      
+                            
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+    
+        </div>

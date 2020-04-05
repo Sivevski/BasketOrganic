@@ -1,0 +1,18 @@
+<div class="alert alert-success text-center" ng-show="success"><h4>Успешно внесовте новa категорија!</h4></div>
+<form name="myForm">
+        <div class="container mt-5">
+            <div class="form-group row">
+                    <label  class="control-label col-sm-2 col-form-label text-center" for="Name">Категорија:</label> 
+            <div class="col-sm-10">
+
+                    <input type="text" name="Category" ng-model="Category" ng-minlength="3" placeholder="Внеси категорија" class="text-center col-sm-8 col-md-4 col-lg-3">
+<!--Labelo za validacija Ime-->  <label class="alert alert-danger text-center col-sm-8 col-md-6 col-lg-6" ng-show="myForm.Category.$dirty && myForm.Category.$invalid">Insert name with min 3 characters</label>
+            </div>
+            </div>
+            <div class="form-group row">
+                    <label  class="control-label col-sm-2 col-form-label text-center" ></label> 
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-outline-warning save-form text-center col-sm-8 col-md-4 col-lg-3" ng-click="insert_category(Category)">Зачувај</button>
+                        
+                        </div>
+                        
